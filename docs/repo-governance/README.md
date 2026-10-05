@@ -26,6 +26,12 @@ the same PR.
 | `allow_update_branch` | `true` | Shows the "Update branch" button when a PR is behind `dev`. |
 | `delete_branch_on_merge` | `true` | Merged work branches are cleaned up automatically. |
 
+Squash and merge commits are both enabled at the repository level because each is needed by
+one branch. The rulesets narrow that to one method per branch (see "Merge methods" below).
+
+Secret scanning and secret scanning push protection are enabled on the repository, alongside
+the `secret-scan` CI job.
+
 ## Rules
 
 | Rule | `dev` | `main` | Why |
@@ -45,6 +51,19 @@ the same PR.
 - `require_code_owner_review: false`: the tech lead is the only code owner and cannot approve
   their own PRs, so requiring code owner review would block them.
 - `require_last_push_approval: false`: GitHub's default, left unchanged.
+
+### Merge methods
+
+Each ruleset allows exactly one merge method through `allowed_merge_methods`, so the branch
+model is enforced rather than left to convention.
+
+| Branch | Allowed method | Why |
+|---|---|---|
+| `dev` | `squash` | One commit per feature, which keeps history linear. |
+| `main` | `merge` | A release is a single merge commit that points back at the `dev` history it shipped. |
+
+The merge button on a PR only offers the method its target branch allows. Rebase merging is
+also switched off for the whole repository.
 
 ### Status checks: strict on `dev`, not on `main`
 
