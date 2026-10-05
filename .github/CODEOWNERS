@@ -1,0 +1,5 @@
+# Tech lead reviews everything by default.
+# Add teammates' handles to specific paths once they've accepted the org invite.
+*            @Nicolercc
+/.github/    @Nicolercc
+/LICENSE     @Nicolercc

@@ -1,0 +1,26 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Client data — never commit real Van Alen data (repo is PUBLIC)
+data/*
+!data/.gitkeep
+*.csv
+*.xlsx
+*.xls
+
+# Dependencies / build
+node_modules/
+dist/
+build/
+.next/
+__pycache__/
+.venv/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
