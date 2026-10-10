@@ -1,11 +1,13 @@
 # Contributing
 
 ## Branches
+
 - `main`: demo-ready only. Merged from `dev` by the tech lead.
 - `dev`: integration branch. All feature PRs target `dev`.
 - Work branches: `feat/short-name`, `fix/short-name`, `docs/short-name`, `chore/short-name`
 
 ## Flow
+
 1. `git checkout dev && git pull`
 2. `git checkout -b feat/quote-library`
 3. Commit small, clear messages: `feat: add quote tagging script`
